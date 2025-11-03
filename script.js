@@ -96,4 +96,10 @@ function showLeaderboard(){
     li.textContent = "Host: " + snap.val().score + " คะแนน";
     scoresList.appendChild(li);
   });
+
 }
+
+
+liff.init({ liffId: "2008408689-Y02KRLDQ" })
+  .then(() => console.log("LIFF Ready"))
+  .catch(err => console.error(err));
