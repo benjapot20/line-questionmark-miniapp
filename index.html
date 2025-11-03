@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>LINE Kahoot Mini App</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://static.line-scdn.net/liff/edge/2.22/sdk.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+</head>
+<body>
+  <h1>LINE Kahoot Mini App</h1>
+
+  <div id="home">
+    <button onclick="createGame()">สร้างเกม (Host)</button>
+    <button onclick="joinGame()">เข้าร่วมเกม (Player)</button>
+  </div>
+
+  <div id="createGame" style="display:none;">
+    <h3>สร้างคำถามของคุณ</h3>
+    <input id="qText" placeholder="คำถาม"><br/>
+    <input placeholder="ตัวเลือก A" id="optA">
+    <input placeholder="ตัวเลือก B" id="optB">
+    <input placeholder="ตัวเลือก C" id="optC">
+    <input placeholder="ตัวเลือก D" id="optD"><br/>
+    <select id="answer">
+      <option value="A">A</option>
+      <option value="B">B</option>
+      <option value="C">C</option>
+      <option value="D">D</option>
+    </select><br/>
+    <button onclick="addQuestion()">เพิ่มคำถาม</button>
+    <button onclick="startGame()">Start Game</button>
+  </div>
+
+  <div id="question" style="display:none;">
+    <h3 id="qDisplay"></h3>
+    <button onclick="submitAnswer('A')" id="btnA"></button>
+    <button onclick="submitAnswer('B')" id="btnB"></button>
+    <button onclick="submitAnswer('C')" id="btnC"></button>
+    <button onclick="submitAnswer('D')" id="btnD"></button>
+    <div>Countdown: <span id="timer">15</span> วินาที</div>
+  </div>
+
+  <div id="leaderboard" style="display:none;">
+    <h3>Leaderboard</h3>
+    <ul id="scores"></ul>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
